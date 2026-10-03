@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>sedikit semangat buat ujian </title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    background:#e9e4da;
+    color:#3f3d38;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+}
+
+.page{
+    display:none;
+    width:100%;
+    max-width:650px;
+    min-height:560px;
+    padding:35px 28px;
+    background:#f7f4ed;
+    border:1px solid #d7d0c3;
+    border-radius:24px;
+    box-shadow:0 12px 35px rgba(60,55,45,.10);
+    text-align:center;
+    animation:appear .45s ease;
+}
+
+.page.active{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    font-size:30px;
+    line-height:1.35;
+    margin-bottom:12px;
+}
+
+h2{
+    font-size:25px;
+    line-height:1.4;
+    margin-bottom:15px;
+}
+
+p{
+    font-size:16px;
+    line-height:1.8;
+    color:#625e55;
+}
+
+.small{
+    color:#8a8377;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+input{
+    width:min(100%,390px);
+    margin:18px 0 12px;
+    padding:15px 18px;
+    border:1px solid #cfc7b9;
+    border-radius:13px;
+    background:#fff;
+    outline:none;
+    font-family:inherit;
+    font-size:16px;
+    text-align:center;
+}
+
+input:focus{
+    border-color:#9c9588;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+    border:none;
+    padding:13px 22px;
+    margin:6px;
+    border-radius:12px;
+    background:#656457;
+    color:#fff;
+    font-family:inherit;
+    font-size:15px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    background:#515047;
+}
+
+button:active{
+    transform:scale(.97);
+}
+
+.secondary{
+    background:#d9d3c8;
+    color:#49463f;
+}
+
+.secondary:hover{
+    background:#c8c1b5;
+}
+
+
+/* =========================
+   PAGE 2
+========================= */
+
+.ucapan{
+    width:100%;
+    max-width:540px;
+    margin:8px 0 15px;
+    padding:21px 23px;
+    border-radius:18px;
+    background:#eeebe3;
+    text-align:left;
+}
+
+.ucapan p{
+    margin-bottom:12px;
+}
+
+.ucapan p:last-child{
+    margin-bottom:0;
+}
+
+
+/* =========================
+   PAGE 3 - SITI
+========================= */
+
+.teaser{
+    width:100%;
+}
+
+.teaserEmoji{
+    font-size:48px;
+    margin-bottom:12px;
+}
+
+.sitiContent{
+    display:none;
+    width:100%;
+    animation:appear .45s ease;
+}
+
+.sitiContent.show{
+    display:block;
+}
+
+.sitiPhoto{
+    width:220px;
+    height:280px;
+    object-fit:cover;
+    display:block;
+    margin:20px auto;
+    border-radius:18px;
+    border:5px solid #ebe6dc;
+    box-shadow:0 8px 22px rgba(50,45,35,.12);
+}
+
+.sitiMessage{
+    max-width:430px;
+    margin:0 auto 18px;
+    padding:15px 18px;
+    border-radius:15px;
+    background:#eeebe3;
+}
+
+
+/* =========================
+   PAGE 4
+========================= */
+
+.questionBox{
+    width:100%;
+}
+
+.choiceArea{
+    position:relative;
+    width:100%;
+    height:170px;
+    margin-top:18px;
+}
+
+#yesButton{
+    position:relative;
+    z-index:2;
+}
+
+#noButton{
+    position:absolute;
+    z-index:3;
+    left:50%;
+    top:65px;
+    transform:translateX(-50%);
+    transition:
+        left .35s ease,
+        top .35s ease,
+        transform .2s ease;
+}
+
+.noMessage{
+    display:none;
+    margin-top:5px;
+    padding:15px 20px;
+    background:#eeebe3;
+    border-radius:14px;
+    animation:appear .3s ease;
+}
+
+.noMessage.show{
+    display:block;
+}
+
+.realContent{
+    display:none;
+    width:100%;
+    animation:appear .45s ease;
+}
+
+.realContent.show{
+    display:block;
+}
+
+.realPhoto{
+    width:225px;
+    height:285px;
+    object-fit:cover;
+    display:block;
+    margin:20px auto;
+    border-radius:18px;
+    border:5px solid #ebe6dc;
+}
+
+
+/* =========================
+   PAGE 5
+========================= */
+
+.lastText{
+    max-width:500px;
+}
+
+.lastBox{
+    width:100%;
+    max-width:500px;
+    padding:20px;
+    margin:20px 0;
+    border-radius:18px;
+    background:#eeebe3;
+}
+
+.waButton{
+    background:#5f7460;
+    font-size:16px;
+    padding:14px 25px;
+}
+
+.waButton:hover{
+    background:#4e624f;
+}
+
+.note{
+    margin-top:14px;
+    font-size:13px;
+    color:#969084;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:600px){
+
+    body{
+        padding:10px;
+    }
+
+    .page{
+        min-height:calc(100vh - 20px);
+        padding:28px 18px;
+        border-radius:20px;
+    }
+
+    h1{
+        font-size:26px;
+    }
+
+    h2{
+        font-size:22px;
+    }
+
+    p{
+        font-size:15px;
+    }
+
+    .ucapan{
+        padding:18px;
+    }
+
+    .sitiPhoto,
+    .realPhoto{
+        width:190px;
+        height:245px;
+    }
+
+    .choiceArea{
+        height:180px;
+    }
+
+    button{
+        font-size:14px;
+        padding:12px 18px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PAGE 1
+===================================================== -->
+
+<section class="page active" id="page1">
+
+    <div class="small">
+        HAII, ADA SESUATU NII
+    </div>
+
+    <h1>
+        masukin namanya duluu 
+    </h1>
+
+    <p>
+        biar nanti nggak salah orang wkwkwk
+    </p>
+
+    <input
+        type="text"
+        id="nameInput"
+        placeholder="tulis nama di sini..."
+        autocomplete="off"
+    >
+
+    <button onclick="goPage2()">
+        lanjyutt 😎
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 2 - UCAPAN
+===================================================== -->
+
+<section class="page" id="page2">
+
+    <div class="small">
+        buat <span id="examName">Joko</span> 👀
+    </div>
+
+    <h2>
+        semangatt buat ujiannyaa yaaa 😭
+    </h2>
+
+    <div class="ucapan">
+
+        <p>
+            good luckk buat ujian terakhir nyaa yaaa, habiss tu dah bisa agak nyantai. YEYYY!! 👹
+        </p>
+
+        <p>
+            truss semoga ujiannya lancarr 
+        </p>
+
+        <p>
+            jangan lupa berdoa sebelum ngerjain truss baca soalnya baik-baik yaa, yang telitii 😭
+        </p>
+
+        <p>
+            semoga dapett nilai yang terbaik
+        </p>
+
+        <p>
+            pokoknya semangatt deh yaa, semoga semuanya
+            lancarr sampe selesaiii 
+        </p>
+
+        <p>
+            truss hari ini si aku gaa banyak on jadii yaudaa, gilaa keren bet gwh ++++ auraa ni 😎😌       </p>
+    </div>
+
+    <button onclick="goPage3()">
+        lanjuttt 😏
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 3 - SITI
+===================================================== -->
+
+<section class="page" id="page3">
+
+
+    <!-- TEASER -->
+
+    <div class="teaser" id="sitiTeaser">
+
+        <div class="teaserEmoji">
+            😎😏
+        </div>
+
+        <h2>
+            ehh btw adaa sesuatu lgii niii
+        </h2>
+
+        <p>
+            u penasaran or no no
+        </p>
+
+        <br>
+
+        <button onclick="openSiti()">
+            harus penasaran soalnya, disini pilihannya cuma itu 😎
+        </button>
+
+    </div>
+
+
+    <!-- SITI -->
+
+    <div class="sitiContent" id="sitiContent">
+
+        <h2>
+            TADAAAA INI DIA SI SITI 😎
+        </h2>
+
+        <p>
+            si siti juga mau kasi pesan nii 😈
+        </p>
+
+        <img
+            src="joko.jpeg"
+            class="sitiPhoto"
+            alt="Siti"
+            onerror="photoError(this)"
+        >
+
+        <div class="sitiMessage">
+
+            <p>
+                semangatt belajarnya ama ujiannya ntik, semoga ujiannya lancarr. i hope you'll get a high score, AWW SITI AWW 😌🫃
+            </p>
+
+        </div>
+
+        <button onclick="goPage4()">
+            lanjut lagi 😎
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 4 - WUJUD ASLI
+===================================================== -->
+
+<section class="page" id="page4">
+
+
+    <!-- PERTANYAAN -->
+
+    <div class="questionBox" id="questionBox">
+
+        <div class="teaserEmoji">
+            😎
+        </div>
+
+        <h2>
+            TADAAA INI DIAAA
+            <br>
+            WUJUD ASLI
+            <span id="realName">Joko</span>
+            😎
+        </h2>
+
+        <p id="questionText">
+            u pingin tauu? 👀
+        </p>
+
+
+        <div class="choiceArea" id="choiceArea">
+
+            <button
+                id="yesButton"
+                onclick="showRealFace()"
+            >
+                yesss yess 😎
+            </button>
+
+            <button
+                id="noButton"
+                class="secondary"
+                onclick="sayNo()"
+            >
+                noo noo 😭
+            </button>
+
+        </div>
+
+
+        <div
+            class="noMessage"
+            id="noMessage"
+        >
+            gabisaa noo 😭
+            <br>
+            harus yesss duluu wkwkwk
+        </div>
+
+    </div>
+
+
+    <!-- FOTO -->
+
+    <div
+        class="realContent"
+        id="realContent"
+    >
+
+        <h2>
+            NAHHH INI DIAAA 😭
+        </h2>
+
+        <p>
+            wujud aslinya
+            <span id="realName2">Joko</span>
+            , beuhhh gilee cool bett cuyyy 😎
+         <p>
+                  wkwkwk b-botak yee, mana kinclong banget lagi, trus tuu muka napa serius amat..😭
+        </p>
+
+        </p>
+        <p>
+                eiiyaa maap kok malah jadi nge roasting sii, mabedd
+        </p>
+
+        <img
+            src="siti.jpeg" 
+            class="realPhoto"
+            alt="Wujud asli"
+            onerror="photoError(this)"
+        >
+
+        <button onclick="goPage5()">
+            okee okee lanjuttt 👹
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 5 - TERAKHIR
+===================================================== -->
+
+<section class="page" id="page5">
+
+    <div class="teaserEmoji">
+        😭🤝
+    </div>
+
+    <h2>
+       nahhh udahhh selesaiii nii, akhirnyaa 
+    </h2>
+
+    <div class="lastBox">
+
+        <p class="lastText">
+           okee deh moga ujiannya lancarr yaa, semangat belajarnya ama ngerjain test nya janlupp berdoa, byeee~
+            <span id="lastName">Joko</span>
+            😭
+        </p>
+
+        <br>
+
+        <p>
+            makasii udah buka sampe akhir wkwkwk, rispek rispek klo ga dibuka ampe akhir eumm.. gapapaa juga sii aman ajaa.., wleee 😋
+        </p>
+
+    </div>
+
+
+    <!-- WHATSAPP CUMA DI SINI -->
+
+    <button
+        class="waButton"
+        onclick="sendWhatsApp()"
+    >
+        kirim ke WhatsApp 💬
+    </button>
+
+    <div class="note">
+        silakan dikirim aku penasaran, penasaran apa tu yaa penasaran ngebug or no no eakk 😏
+    </div>
+
+</section>
+
+
+
+<script>
+
+/* =====================================================
+   NAMA
+===================================================== */
+
+let userName = "";
+let noCount = 0;
+
+
+
+/* =====================================================
+   PINDAH PAGE
+===================================================== */
+
+function showPage(number){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page){
+
+            page.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById("page" + number)
+        .classList.add("active");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+
+/* =====================================================
+   PAGE 1 → PAGE 2
+===================================================== */
+
+function goPage2(){
+
+    const input =
+        document.getElementById("nameInput");
+
+    let name =
+        input.value.trim();
+
+
+    if(name === ""){
+
+        input.focus();
+
+        input.style.borderColor =
+            "#a76d6d";
+
+
+        setTimeout(function(){
+
+            input.style.borderColor =
+                "#cfc7b9";
+
+        },800);
+
+        return;
+    }
+
+
+    /*
+       Simpan nama yang diinput
+    */
+
+    userName =
+        name.charAt(0).toUpperCase() +
+        name.slice(1);
+
+
+    /*
+       Masukkan nama ke bagian
+       yang memang milik orang tersebut
+    */
+
+    document
+        .getElementById("examName")
+        .textContent =
+        userName;
+
+
+    document
+        .getElementById("realName")
+        .textContent =
+        userName;
+
+
+    document
+        .getElementById("realName2")
+        .textContent =
+        userName;
+
+
+    document
+        .getElementById("lastName")
+        .textContent =
+        userName;
+
+
+    showPage(2);
+
+}
+
+
+
+/* =====================================================
+   PAGE 2 → PAGE 3
+===================================================== */
+
+function goPage3(){
+
+    showPage(3);
+
+}
+
+
+
+/* =====================================================
+   BUKA SITI
+===================================================== */
+
+function openSiti(){
+
+    document
+        .getElementById("sitiTeaser")
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById("sitiContent")
+        .classList.add("show");
+
+}
+
+
+
+/* =====================================================
+   PAGE 3 → PAGE 4
+===================================================== */
+
+function goPage4(){
+
+    showPage(4);
+
+}
+
+
+
+/* =====================================================
+   YES
+===================================================== */
+
+function showRealFace(){
+
+    document
+        .getElementById("questionBox")
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById("realContent")
+        .classList.add("show");
+
+}
+
+
+
+/* =====================================================
+   NO = TOMBOL KABUR JAUHHH 😭
+===================================================== */
+
+function sayNo(){
+
+    const noButton =
+        document.getElementById("noButton");
+
+    const yesButton =
+        document.getElementById("yesButton");
+
+    const questionText =
+        document.getElementById("questionText");
+
+    const noMessage =
+        document.getElementById("noMessage");
+
+    const area =
+        document.getElementById("choiceArea");
+
+
+    noCount++;
+
+
+    /* =========================
+       PESAN
+    ========================= */
+
+    if(noCount === 1){
+
+        questionText.innerHTML =
+            "ihhh nggak boleh noo 😭<br>" +
+            "u harus yesss yess duluu 👀";
+
+    }
+    else if(noCount === 2){
+
+        questionText.innerHTML =
+            "masii pencet noo jugaaa 😭<br>" +
+            "ayo yesss duluu wkwkwk";
+
+    }
+    else{
+
+        questionText.innerHTML =
+            "NO NO NO GABOLEHH 😭😭<br>" +
+            "UDAHH PENCET YESS YESS AJA 😎";
+
+    }
+
+
+    noMessage.classList.add("show");
+
+
+    /* =========================
+       YES MAKIN MENONJOL
+    ========================= */
+
+    yesButton.innerHTML =
+        "YESS YESSSS 😎";
+
+    yesButton.style.transform =
+        "scale(1.08)";
+
+    yesButton.style.background =
+        "#56564b";
+
+
+    /* =========================
+       HITUNG UKURAN AREA
+    ========================= */
+
+    const areaWidth =
+        area.clientWidth;
+
+    const areaHeight =
+        area.clientHeight;
+
+    const buttonWidth =
+        noButton.offsetWidth;
+
+    const buttonHeight =
+        noButton.offsetHeight;
+
+
+    /*
+       Biar tombol tetap di dalam
+       kartu tapi bisa pindah jauh
+    */
+
+    const maxLeft =
+        Math.max(
+            5,
+            areaWidth - buttonWidth - 5
+        );
+
+    const maxTop =
+        Math.max(
+            5,
+            areaHeight - buttonHeight - 5
+        );
+
+
+    /*
+       Random posisi
+    */
+
+    let randomLeft =
+        Math.random() * maxLeft;
+
+    let randomTop =
+        Math.random() * maxTop;
+
+
+    /*
+       Pastikan perpindahannya
+       cukup jauh dari posisi lama
+    */
+
+    let oldLeft =
+        parseFloat(noButton.style.left) || areaWidth / 2;
+
+    let oldTop =
+        parseFloat(noButton.style.top) || areaHeight / 2;
+
+
+    let attempts = 0;
+
+
+    while(
+        Math.abs(randomLeft - oldLeft) < 90 &&
+        attempts < 20
+    ){
+
+        randomLeft =
+            Math.random() * maxLeft;
+
+        randomTop =
+            Math.random() * maxTop;
+
+        attempts++;
+
+    }
+
+
+    /* =========================
+       PINDAHKAN TOMBOL
+    ========================= */
+
+    noButton.style.left =
+        randomLeft + "px";
+
+    noButton.style.top =
+        randomTop + "px";
+
+    noButton.style.transform =
+        "none";
+
+
+    /* =========================
+       TEKS TOMBOL ACAK
+    ========================= */
+
+    const texts = [
+
+        "noo noo 😭",
+        "eh jangan 😭",
+        "gabolehh 😭",
+        "tetep noo 😭",
+        "nggak bisa 😭",
+        "hehe kabur 😭",
+        "jangan pencet aku 😭"
+
+    ];
+
+
+    const randomText =
+        texts[
+            Math.floor(
+                Math.random() * texts.length
+            )
+        ];
+
+
+    noButton.innerHTML =
+        randomText;
+
+}
+
+
+
+/* =====================================================
+   PAGE 4 → PAGE 5
+===================================================== */
+
+function goPage5(){
+
+    showPage(5);
+
+}
+
+
+
+/* =====================================================
+   WHATSAPP
+   CUMA DI SLIDE TERAKHIR
+===================================================== */
+function sendWhatsApp(){
+
+    let message =
+        "aku udaa buka makasii yaa Claireee, +99999999999999 aura tuu kamu, yg kali ini fikss plus aura no tipu tipu, keren bettt kmu😏😎";
+
+    let whatsappURL =
+        "https://wa.me/?text=" +
+        encodeURIComponent(message);
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+}
+
+
+
+
+
+/* =====================================================
+   FOTO ERROR
+===================================================== */
+
+function photoError(img){
+
+    img.style.display =
+        "none";
+
+
+    const errorText =
+        document.createElement("p");
+
+
+    errorText.style.margin =
+        "20px 0";
+
+
+    errorText.style.color =
+        "#9b625d";
+
+
+    errorText.innerHTML =
+        "foto belum ketemu 😭<br>" +
+        "pastikan nama filenya <b>siti.jpg</b>";
+
+
+    img.parentNode.insertBefore(
+        errorText,
+        img.nextSibling
+    );
+
+}
+
+
+
+/* =====================================================
+   ENTER
+===================================================== */
+
+document
+    .getElementById("nameInput")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+
+                goPage2();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
